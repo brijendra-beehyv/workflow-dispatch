@@ -1,0 +1,24 @@
+name: Event Handler
+
+on:
+  workflow_dispatch:
+    inputs:
+      Param1:
+        description: "Parameter 1"
+        required: true
+        default: "default param 1"
+      
+      Param2:
+        description: "Parameter 2"
+        required: true
+        default: "default param 2"
+
+jobs:
+  XYZ:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Payload
+        run: |
+          echo "Param1 is ${{ inputs.Param1 }}"
+          echo "Param2 is ${{ inputs.Param2 }}"

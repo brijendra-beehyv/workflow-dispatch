@@ -1,0 +1,24 @@
+name: Event caller
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  emmit_event:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dispatch event
+        run: |
+          curl -X POST https://api.github.com/repos/brijendra-beehyv/repo_dispatch/dispatches \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.PAT_TOKEN }}" \
+            -d '{
+                  "event_type": "Event_XYZ",
+                  "client_payload": {
+                    "env": "staging",
+                    "Param1": "this is param 1",
+                    "Param2": "this is param 2"
+                  }
+                }'
