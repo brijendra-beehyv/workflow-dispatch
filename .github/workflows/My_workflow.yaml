@@ -1,4 +1,4 @@
-name: Event Handler
+name: My Workflow
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ on:
         default: "default param 2"
 
 jobs:
-  XYZ:
+  job-1:
     runs-on: ubuntu-latest
 
     steps:
